@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineMas - Entradas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo">CineUTN</div>
+      <p class="tagline">Sistema de venta de entradas</p>
+    </header>
+
+    <section class="ticket-form">
+      <h2>Compra tus entradas</h2>
+
+      <div class="form-group">
+        <label for="pelicula">Película</label>
+        <select id="pelicula">
+          <option value="">Seleccione una película</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="tipo">Tipo de entrada</label>
+        <select id="tipo">
+          <option value="adulto">Adulto (100%)</option>
+          <option value="nino">Niño (pagan 50%)</option>
+          <option value="tercera_edad">Tercera Edad (pagan 70%)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad" value="1" min="1" max="10" />
+      </div>
+
+      <button id="btnCalcular">Calcular Total</button>
+    </section>
+
+    <section id="resultado" class="resultado hidden">
+      <h2>Tu entrada</h2>
+      <div class="ticket">
+        <div class="ticket-header">
+          <span class="cine-name">CineMas</span>
+          <span class="ticket-type">ENTRADA</span>
+        </div>
+        <div class="ticket-body">
+          <div class="info-row">
+            <span class="label">Película:</span>
+            <span id="rPelicula" class="value"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Género:</span>
+            <span id="rGenero" class="value"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Duración:</span>
+            <span id="rDuracion" class="value"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Tipo:</span>
+            <span id="rTipo" class="value"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Cantidad:</span>
+            <span id="rCantidad" class="value"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Precio Unitario:</span>
+            <span id="rPrecioUnitario" class="value"></span>
+          </div>
+          <div class="info-row total-row">
+            <span class="label">Total:</span>
+            <span id="rTotal" class="value"></span>
+          </div>
+        </div>
+        <div class="ticket-footer">
+          <p>Gracias por su compra</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

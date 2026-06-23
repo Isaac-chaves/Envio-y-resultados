@@ -1,25 +1,33 @@
-import express from "express";
-import dotenv from "dotenv"; 
-import cors from "cors";
-
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import cineRoutes from './routes/cine.routes.js';
 
 dotenv.config();
+
 const app = express();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const frontendDir = path.join(__dirname, '../../Frontend');
 
 app.use(cors());
 app.use(express.json());
 
-//variables de entorno del archivo env
-const NAME=process.env.SERVER_NAME;
-const VERSION=process.env.SERVER_VERSION;
-const DESCRIPTION=process.env.SERVER_DESCRIPTION;
-const PORT=process.env.SERVER_PORT;
+app.get('/', (req, res) => {
+  res.sendFile(path.join(frontendDir, 'index.html'));
+});
+app.get('/style.css', (req, res) => {
+  res.sendFile(path.join(frontendDir, 'style.css'));
+});
+app.get('/script.js', (req, res) => {
+  res.sendFile(path.join(frontendDir, 'script.js'));
+});
 
-app.get("/", (reg,res) =>{
-res.json({Nombre:NAME, Version:VERSION, Descripcion:DESCRIPTION, Puerto:PORT});});
+const PORT = process.env.SERVER_PORT || 4000;
 
-app.get("/", (req,res) => {res.send(`${NAME}<p>${VERSION}<p>${DESCRIPTION}` );});
-app.listen(PORT, () => {console.log(`server running en :${PORT}`);});
+app.use('/api/cine', cineRoutes);
 
-
-
+app.listen(PORT, () => {
+  console.log(`API ejecutándose en http://localhost:${PORT}`);
+});

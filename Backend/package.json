@@ -1,24 +1,21 @@
 {
-  "name": "envio-presesamiento-de-datos",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  },
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
-  "dependencies": {
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^3.21.2",
-    "package-name": "^0.1.0",
-    "react": "^19.2.7"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.14"
-  }
+  "type": "module"
 }
